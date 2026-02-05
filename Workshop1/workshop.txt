@@ -1,0 +1,68 @@
+
+// Tehtävä 7.
+window.alert("Hei maailma");
+undefined
+document.write("Moi kaikki");
+console.log("Hei");
+VM81:1 Hei
+
+  <script>
+        for (var i = 0; i < 400; i++) {
+            console.log("This round is " + i);
+        }
+        window.alert("Hoi Kaikki");
+    </script>
+
+
+// Tehtävä 8.
+ var x= 5;
+undefined
+var x=5;
+undefined
+var y=6;
+undefined
+6
+6
+var z= x+y;
+undefined
+console.log(z);
+VM368:1 11
+undefined
+alert(z);
+undefined
+document.write(z);
+
+// Tehtävä 9
+document.write("Here order beer!");
+var x= 49;
+var order=' Beer';
+if (x > 50){
+    document.write("He's over 50!");
+}else if (x<50 && x>40){
+    document.write("Not quite fifty yet"+ order);
+} else if(x<=50 && x>30){
+    document.write("Middle aged man, who ordered some" + order);
+}else{
+    document.write("It seems you're bit underaged.");}
+
+// Tehtävä 10
+var arr=[];
+for (var i=0; i<15;i++){
+    arr.push(Math.random());
+    document.write("<h1>"+arr+"</h1>")
+}
+console.log(arr);
+
+// Tehtävä 12.
+// Define an object to hold person data
+var person = {
+firstName:"John",
+lastName:"Doe",
+address: "ei osoitetta",
+puhelin: "064046409",
+age:50,
+eyeColor:"blue"
+};
+printinfo= person;
+document.write(printinfo);
+console.log(person);
