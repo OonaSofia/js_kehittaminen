@@ -1,1 +1,1 @@
-Web-kehitys 1 (front end), workshop tehtäviä. 
+Web-kehitys 1 (front end) kurssin workshop tehtäviä. 
