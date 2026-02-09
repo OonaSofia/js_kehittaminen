@@ -33,9 +33,11 @@ repeatingText();
 //Harjoitus 3
 // let agent = navigator.userAgent;
 // if (agent.includes("Mozilla")) {
-// location.href = "http://www.mozilla.org";}
+// location.href = "http://www.mozilla.org";
+//}
 // else{
-// location.hre="https://www.helsinki.fi"; }
+// location.hre="https://www.helsinki.fi"; 
+//}
 
 //Harjoitus 4 
 //let vastaus= confirm("Oletko opiskelija?");
@@ -45,6 +47,16 @@ repeatingText();
 //else{
  //document.write("Valitettavasti tämä sivu on tarkoitettu vain opiskelijoille")
 //}
+
+//Harjoitus 5
+const images = [
+  "http://farm4.staticflickr.com/3691/11268502654_f28f05966c_m.jpg",
+  "http://farm1.staticflickr.com/33/45336904_1aef569b30_n.jpg",
+  "http://farm6.staticflickr.com/5211/5384592886_80a512e2c9.jpg",
+];
+luku= Math.floor(Math.random()* images.length);
+document.write("<img src= '"+images[luku]+"'>");
+
 
 </script>
 
