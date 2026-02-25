@@ -5,7 +5,18 @@
     <title>Työpaja 3</title>
     <link rel="stylesheet" href="css/styles.css">
     <script>
+        // Harjoitus 1
         <!-- JavaScript menee tänne -->
+        function nappiklikkaus() {
+            alert("Nappia klikattiin");   
+        };
+        function taulukkoklikkaus() {
+            alert("Tässä taulukko");
+        };
+        function hiiripaalla(){
+            console.log("Stepped over me with a mouse!")
+        }
+
     </script>
 </head>
 
@@ -23,8 +34,8 @@
     <p>Alla näet kaksi painiketta. Lisää näihin onClick‑tapahtumat.</p>
 
     <p>
-        <button>Napsauta minua</button>
-        <button>Näytä taulukko</button>
+        <button onclick="nappiklikkaus()">Napsauta minua</button>
+        <button onclick ="taulukkoklikkaus()">Näytä taulukko</button>
     </p>
 
     <div id="taulukonPaikka"></div>
@@ -62,7 +73,7 @@
     <hr>
 
     <!-- Harjoitus 2 -->
-    <h2>Harjoitus 2</h2>
+    <h2 onmouseover="hiiripaalla ()">Harjoitus 2</h2>
     <ul>
         <li>Lisää <code>mouseover</code>-tapahtuma otsikkoon “Harjoitus 2”. Tulosta konsoliin: <em>“Stepped over me with a mouse!”</em></li>
         <li>Lisää <code>click</code>-tapahtuma “Harjoitus 1” ‑otsikkoon dynaamisesti <code>addEventListener()</code>-metodilla. Otsikon värin tulee muuttua punaiseksi ja sisällöksi “Bye bye mouse!”.</li>
