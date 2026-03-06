@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="fi">
-<head>
-<meta charset="utf-8" />
-<title>Työpaja 3</title>
+  <head>
+    <meta charset="utf-8" />
+    <title>Työpaja 3</title>
     <link rel="stylesheet" href="css/styles.css" />
     <script>
       // Harjoitus 1, loput harjoituksista löytyy vikasta scriptistä
@@ -174,6 +174,23 @@
         </ul>
       </li>
     </ul>
+    <!-- Harjoitus 3 pikapalaute  -->
+    <h3>Pikapalaute oma versio</h3>
+
+    <form id="form">
+      <label for="feedback">Palaute (min 10, max 200)</label>
+
+      <textarea id="feedback" placeholder="Kirjoita palaute..."></textarea>
+
+      <div id="charcount">0 / 200</div>
+
+      <button id="sendBtn" type="submit">Lähetä</button>
+
+      <div id="status"></div>
+
+      <h3>Esikatselu</h3>
+      <div id="preview"></div>
+    </form>
 
     <h3>Pikapalaute-lomake</h3>
 
@@ -181,8 +198,6 @@
       <label for="feedback">Palaute (min 10 merkkiä, max 200):</label><br />
       <textarea
         id="feedback"
-        onfocus="focusFunction()"
-        onblur="myFunctionBlur()"
         placeholder="Kirjoita palaute..."
         rows="5"
       ></textarea
@@ -311,16 +326,30 @@ window.location.href = url;
         h2.innerHTML = "Bye bye mouse!";
       });
 
-      function focusFunction() {
-        document.getElementById("status").innerHTML =
-          "Kirjoitat parhaillaan palautetta";
-        document.getElementById("feedback").style.background = "yellow";
-      }
+      // Harjoitus 3 etsitään pikapalautteen id
 
-      function myFunctionBlur() {
-        document.getElementById("feedback").style.background = "white";
-        document.getElementById("status").innerHTML = "";
-      }
+      let form = document.querySelector("#form");
+      let textarea = document.querySelector("#feedback");
+      let status = document.querySelector("#status");
+      let charcount = document.querySelector("#charcount");
+      let preview = document.querySelector("#preview");
+      let button = document.querySelector("#sendBtn");
+
+      //focus
+
+      textarea.addEventListener("focus", function () {
+        status.textContent = "Kirjoita palautteesi"
+        textarea.style.background = "yellow"
+      });
+
+      //blur 
+      textarea.addEventListener("blur", function() {
+        status.textContent = ""
+        textarea.style.background= ""
+
+      });
+
+
     </script>
   </body>
 </html>

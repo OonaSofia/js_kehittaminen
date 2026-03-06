@@ -157,3 +157,7 @@ table.display {
   height: auto;
   border: 0;
 }
+textarea {
+  width: 100;
+  height: 120px;
+}
