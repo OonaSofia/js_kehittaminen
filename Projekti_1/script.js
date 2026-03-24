@@ -1,6 +1,6 @@
 let todoFormi = document.querySelector("#todoFormi");
 let taskInput = document.querySelector("#task");
-let errorviesti = document.querySelector("#errorMessage");
+let errorviesti = document.querySelector("#errorviesti");
 let list = document.querySelector("#list");
 let clearBtn = document.querySelector("#clearBtn");
 
