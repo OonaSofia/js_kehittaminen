@@ -1,18 +1,26 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fi">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Todo -lista</title>
-      <link rel="stylesheet" href="style.css" />
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Todo-lista</h1>
 
-    <h1>Hei maailma!</h1>
+      <form id="todoForm">
+        <label for="task">Lisää tehtävä</label>
+        <input id="task" type="text" placeholder="Kirjoita tehtävä" />
+        <p id="errorMessage"></p>
+        <button type="submit">Lisää</button>
+      </form>
 
-    <script>
-        console.log("Tämä on JavaScriptia HTML-sivun sisällä.");
-        alert("Sivu on ladattu!");
-    </script>
-<script src="script.js"></script>
-</body>
+      <ul id="lista"></ul>
+
+      <button id="clearBtn" type="button">Tyhjennä kaikki</button>
+    </main>
+    <script></script>
+    <script src="script.js"></script>
+  </body>
 </html>
