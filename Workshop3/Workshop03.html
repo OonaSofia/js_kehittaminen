@@ -192,46 +192,10 @@
       <div id="preview"></div>
     </form>
 
-    <h3>Pikapalaute-lomake</h3>
-
-    <form id="feedbackForm" novalidate>
-      <label for="feedback">Palaute (min 10 merkkiä, max 200):</label><br />
-      <textarea
-        id="feedback"
-        placeholder="Kirjoita palaute..."
-        rows="5"
-      ></textarea
-      ><br />
-
-      <div style="margin: 4px 0">
-        <span id="charcount">0/200</span>
-        <span
-          id="status"
-          aria-live="polite"
-          style="margin-left: 8px; color: #666"
-        ></span>
-      </div>
-
-      <button id="sendBtn" type="submit" disabled>Lähetä</button>
-    </form>
-
-    <h3>Esikatselu</h3>
-    <div
-      id="preview"
-      style="
-        border: 1px solid #ccc;
-        padding: 8px;
-        min-height: 40px;
-        background: #fafafa;
-      "
-    >
-      (Esikatselu tulee tähän)
-    </div>
-
-    <hr />
-
     <!-- Harjoitus 4 -->
     <h2>Harjoitus 4</h2>
+
+    <button onclick="avaaKartta()">Näytä sijainti kartalla</button>
 
     <h3>1. Google Maps ja koordinaatit</h3>
     <p>
@@ -338,18 +302,63 @@ window.location.href = url;
       //focus
 
       textarea.addEventListener("focus", function () {
-        status.textContent = "Kirjoita palautteesi"
-        textarea.style.background = "yellow"
+        status.textContent = "Kirjoita palautteesi";
+        textarea.style.background = "yellow";
       });
 
-      //blur 
-      textarea.addEventListener("blur", function() {
-        status.textContent = ""
-        textarea.style.background= ""
+      //blur
+      textarea.addEventListener("blur", function () {
+        status.textContent = "";
+        textarea.style.background = "white";
+      });
+      //input
+      const max = 200;
+      const min = 10;
 
+      textarea.addEventListener("input", function () {
+        let pituus = textarea.value.length;
+        charcount.textContent = `${pituus} / ${max}`;
+
+        if (pituus > max) {
+          charcount.style.color = "red";
+        } else {
+          charcount.style.color = "";
+        }
+        document.getElementById("preview").innerHTML = textarea.value;
+      });
+      if (pituus < min || pituus > max) {
+        button.disabled = true;
+      } else {
+        button.disabled = false;
+      }
+      // Keydown
+      textarea.addEventListener("keydown", function (event) {
+        if ((event.ctrlKey || event.metaKey) && event.key === "Enter") {
+          form.requestSubmit();
+        }
       });
 
+      //submit
 
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+      });
+
+      //Harjoitus 4
+
+      function avaaKartta() {
+        navigator.geolocation.getCurrentPosition(
+          function (position) {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+            const url = `https://www.google.com/maps?q=${lat},${lon}`;
+            window.location.href = url;
+          },
+          function (error) {
+            console.log("Sijaintia ei voitu hakea:", error.message);
+          },
+        );
+      }
     </script>
   </body>
 </html>
