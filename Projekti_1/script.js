@@ -6,4 +6,11 @@ let clearBtn = document.querySelector("#clearBtn");
 
 todoFormi.addEventListener("submit", function (event) {
   event.preventDefault();
+  let tehtava = taskInput.value;
+
+  if (tehtava === "") {
+    errorviesti.textContent = "Kenttä ei saa olla tyhjä!";
+    return;
+  }
+  errorviesti.textContent = "";
 });
