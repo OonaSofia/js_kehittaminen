@@ -5,14 +5,14 @@ let list = document.querySelector("#list");
 let clearBtn = document.querySelector("#clearBtn");
 
 todoFormi.addEventListener("submit", function (event) {
-  event.preventDefault();
-  let tehtava = taskInput.value;
+  errorviesti.textContent = "";
+  document.getElementById("task").style.border = "";
+
+  let tehtava = document.getElementById("task").value;
 
   if (tehtava === "") {
+    document.getElementById("task").style.border = "2px solid red";
     errorviesti.textContent = "Kenttä ei saa olla tyhjä!";
-    taskInput.classList.add("virhe");
-    return;
+    event.preventDefault();
   }
-  errorviesti.textContent = "";
-  taskInput.classList.remove("virhe");
 });
