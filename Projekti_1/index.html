@@ -9,10 +9,11 @@
     <main class="container">
       <h1>Todo-lista</h1>
 
-      <form id="todoFormi">
+      <form id="todoFormi" onsubmit="validateForm(event)">
         <label for="task">Lisää tehtävä</label>
         <input id="task" type="text" placeholder="Kirjoita tehtävä" />
-        <p id="errorviesti"></p>
+        <div id="errorviesti"></div>
+
         <button type="submit">Lisää</button>
       </form>
 
