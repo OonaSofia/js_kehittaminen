@@ -10,7 +10,9 @@ todoFormi.addEventListener("submit", function (event) {
 
   if (tehtava === "") {
     errorviesti.textContent = "Kenttä ei saa olla tyhjä!";
+    taskInput.classList.add("virhe");
     return;
   }
   errorviesti.textContent = "";
+  taskInput.classList.remove("virhe");
 });
