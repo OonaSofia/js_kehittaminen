@@ -312,11 +312,13 @@ window.location.href = url;
         textarea.style.background = "white";
       });
       //input
+
       const max = 200;
       const min = 10;
 
       textarea.addEventListener("input", function () {
-        let pituus = textarea.value.length;
+        const pituus = textarea.value.length;
+
         charcount.textContent = `${pituus} / ${max}`;
 
         if (pituus > max) {
@@ -324,13 +326,15 @@ window.location.href = url;
         } else {
           charcount.style.color = "";
         }
-        document.getElementById("preview").innerHTML = textarea.value;
+
+        preview.textContent = textarea.value;
+
+        if (pituus < min || pituus > max) {
+          button.disabled = true;
+        } else {
+          button.disabled = false;
+        }
       });
-      if (pituus < min || pituus > max) {
-        button.disabled = true;
-      } else {
-        button.disabled = false;
-      }
       // Keydown
       textarea.addEventListener("keydown", function (event) {
         if ((event.ctrlKey || event.metaKey) && event.key === "Enter") {
@@ -359,6 +363,18 @@ window.location.href = url;
           },
         );
       }
+      //  Harjoitus 5
+
+      let keyBox = document.querySelector("#keybox");
+      let keyInfo = document.querySelector("#keyinfo");
+
+      document.addEventListener("keydown", function (event) {
+        console.log(event);
+
+        keyInfo.textContent = `Painettu näppäin: ${event.key}, koodi: ${event.code}`;
+        keyBox.textContent = event.key;
+        keyBox.style.fontSize = "64px";
+      });
     </script>
   </body>
 </html>
