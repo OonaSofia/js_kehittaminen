@@ -96,3 +96,23 @@ membershipForm.addEventListener("submit", function (event) {
 
   costInput.value = total + " €";
 });
+
+//Tehtävä 3
+
+function calculate() {
+  let quantity = parseInt(document.querySelector("#quantity").value);
+  let price = parseFloat(document.querySelector("#price").value);
+  let tax = parseFloat(document.querySelector("#tax").value);
+  let discount = parseFloat(document.querySelector("#discount").value);
+  let shipping = parseFloat(document.querySelector("#shipping").value);
+
+  if (quantity > 100) {
+    discount = discount * 2;
+  }
+
+  let subtotal = quantity * price;
+  let taxAmount = subtotal * tax / 100;
+  let total = subtotal + taxAmount - discount + shipping;
+
+  document.querySelector("#total").value = total.toFixed(2);
+}
