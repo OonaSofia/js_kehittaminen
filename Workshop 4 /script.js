@@ -93,3 +93,44 @@ autonKuva.addEventListener("mouseover", function () {
 autonKuva.addEventListener("mouseout", function () {
   autonKuva.style.border = "none";
 });
+
+// Tehtävä 4
+
+let lisaaNappi = document.querySelector("#Insert");
+
+lisaaNappi.addEventListener("click", function () {
+  let nimi = document.querySelector("#nimi").value;
+  let tehtava = document.querySelector("#tehtava").value;
+  let palkka = document.querySelector("#palkka").value;
+
+  if (nimi.length <= 5) {
+    alert("Nimen tulee olla yli 5 merkkiä pitkä.");
+  } else if (tehtava == "") {
+    alert("Tehtävä-kenttä ei saa olla tyhjä.");
+  } else if (palkka == "" || isNaN(palkka) || Number(palkka) <= 0) {
+    alert("Palkan pitää olla yli 0 ja sisältää vain numeroita.");
+  } else {
+    let taulukko = document.querySelector("#data tbody");
+
+    let uusiRivi = document.createElement("tr");
+
+    let nimiSolu = document.createElement("td");
+    nimiSolu.textContent = nimi;
+
+    let tehtavaSolu = document.createElement("td");
+    tehtavaSolu.textContent = tehtava;
+
+    let palkkaSolu = document.createElement("td");
+    palkkaSolu.textContent = palkka;
+
+    uusiRivi.appendChild(nimiSolu);
+    uusiRivi.appendChild(tehtavaSolu);
+    uusiRivi.appendChild(palkkaSolu);
+
+    taulukko.appendChild(uusiRivi);
+
+    document.querySelector("#nimi").value = "";
+    document.querySelector("#tehtava").value = "";
+    document.querySelector("#palkka").value = "";
+  }
+});
